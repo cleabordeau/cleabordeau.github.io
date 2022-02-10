@@ -1,0 +1,43 @@
+H1{ text-align: center;
+    color:rgb(0,155,255);
+}
+
+H2{
+    text-align: center;
+    background-color: rgb(50,50,50);
+    color : white;
+    padding: 6px;
+}
+
+#banner {
+      width: 100%;
+}
+
+body {
+  background-color: grey ;  
+  font-family: monospace;
+  color : white; 
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+#buttons {
+     width: 100%
+}
+
+/* lien non visité */
+      a:link {
+        color:rgb(0,150,240);
+      }
+/* lien visité */
+      a:visited {
+        color:#0000FF;
+      }
+/* souris sur le lien */
+      a:hover {
+        color:#1E90FF;
+      }
+/* lien sélécté */
+      a:active {
+        color: rgb(0,170,170);
+      }
