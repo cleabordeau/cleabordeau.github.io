@@ -42,11 +42,6 @@ body {
         color: rgb(0,170,170);
       }
 
-
-* {
-  padding: 0;
-  margin: 0;
-}
 .container {
   width: 100%;
   min-height: 100vh;
