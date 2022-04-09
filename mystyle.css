@@ -31,6 +31,10 @@ body {
      width: 100%
 }
 
+#java {
+     width: 100%
+}
+
 /* lien non visité */
       a:link {
         color:rgb(0,150,240);
