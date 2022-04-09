@@ -9,6 +9,12 @@ H2{
     padding: 6px;
 }
 
+H3{
+    background-color: rgb(50,50,50);
+    color : blue;
+    padding: 6px;
+}
+
 #banner {
       width: 100%;
 }
