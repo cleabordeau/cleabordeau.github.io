@@ -41,7 +41,7 @@ body {
       }
 /* lien visité */
       a:visited {
-        color:#0000FF;
+        color:rgb(0,0,20);
       }
 /* souris sur le lien */
       a:hover {
