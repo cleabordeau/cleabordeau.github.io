@@ -10,9 +10,19 @@ H2{
 }
 
 H3{
+    text-align: center;
     background-color: rgb(50,50,50);
     color:rgb(0,155,255);
-    padding: 6px;
+}
+
+H4{
+    text-align: center;
+    color:rgb(250,250,255);
+}
+
+H5{
+    text-align: center;
+    color:rgb(250,250,255);
 }
 
 #banner {
