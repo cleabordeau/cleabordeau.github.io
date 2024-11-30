@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Questionnaire</h1>
+        <form id="quizForm">
+            <p>Quel est mon plat préféré ?</p>
+            <input type="text" id="q1" required><br><br>
+
+            <p>Quelle est ma couleur préférée ?</p>
+            <input type="text" id="q2" required><br><br>
+
+            <p>Quel est notre souvenir le plus cher ?</p>
+            <input type="text" id="q3" required><br><br>
+
+            <input type="submit" value="Valider mes réponses">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+
+            // Récupération des réponses
+            const q1 = document.getElementById("q1").value.toLowerCase().trim();
+            const q2 = document.getElementById("q2").value.toLowerCase().trim();
+            const q3 = document.getElementById("q3").value.toLowerCase().trim();
+
+            // Vérification des réponses
+            if (q1 === "pizza" && q2 === "rouge" && q3 === "notre voyage à paris") {
+                // Bonne réponse
+                window.location.href = "cadeau.html"; // Redirection vers la page du cadeau
+            } else {
+                // Mauvaise réponse
+                window.location.href = "echec.html"; // Redirection vers une page d'échec
+            }
+        });
+    </script>
+</body>
+</html>
