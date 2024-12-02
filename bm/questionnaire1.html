@@ -46,7 +46,7 @@
             <p>Quelle est ma couleur préférée ?</p>
             <input type="text" id="q2" required><br><br>
 
-            <p>Quel est notre souvenir le plus cher ?</p>
+            <p>Quel sont mes vacances préférées ?</p>
             <input type="text" id="q3" required><br><br>
 
             <input type="submit" value="Valider mes réponses">
@@ -63,7 +63,7 @@
             const q3 = document.getElementById("q3").value.toLowerCase().trim();
 
             // Vérification des réponses
-            if (q1 === "pizza" && q2 === "rouge" && q3 === "notre voyage à paris") {
+            if (q1 === "pizza" && q2 === "rouge" && q3 === "hiver") {
                 // Bonne réponse
                 window.location.href = "questionnaire2.html"; // Redirection vers la page du cadeau
             } else {
