@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu du dinosaure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #000;
+            background-color: #eee;
+        }
+        #message {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="600" height="200"></canvas>
+    <div id="message"></div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Load dino image
+        const dinoImage = new Image();
+        dinoImage.src = 'photos/Mimo1.png'; // Placez votre image dans le même dossier et nommez-la "dino.png"
+
+        // Game variables
+        let dino = { x: 50, y: 150, width: 30, height: 30, dy: 0 };
+        let obstacles = [];
+        let score = 0;
+        let isJumping = false;
+        const gravity = 0.6;
+        const jumpStrength = -10;
+
+        // Obstacle generation
+        function createObstacle() {
+            const x = canvas.width;
+            const height = Math.random() * 50 + 20;
+            obstacles.push({ x, y: canvas.height - height, width: 20, height });
+        }
+
+        // Game loop
+        function update() {
+            // Dino physics
+            dino.dy += gravity;
+            dino.y += dino.dy;
+            if (dino.y > 150) { dino.y = 150; dino.dy = 0; isJumping = false; }
+
+            // Obstacle movement
+            obstacles.forEach(obstacle => { obstacle.x -= 5; });
+            if (obstacles.length && obstacles[0].x < -20) obstacles.shift();
+
+            // Collision detection
+            obstacles.forEach(obstacle => {
+                if (dino.x < obstacle.x + obstacle.width &&
+                    dino.x + dino.width > obstacle.x &&
+                    dino.y < obstacle.y + obstacle.height &&
+                    dino.height + dino.y > obstacle.y) {
+                    endGame();
+                }
+            });
+
+            // Update score
+            score++;
+            if (score % 500 === 0) createObstacle();
+
+            // Draw everything
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw dino
+            ctx.drawImage(dinoImage, dino.x, dino.y, dino.width, dino.height);
+
+            // Draw obstacles
+            obstacles.forEach(obstacle => {
+                ctx.fillStyle = 'red';
+                ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+            });
+
+            // Display score
+            ctx.fillStyle = 'black';
+            ctx.fillText(`Score: ${score}`, 10, 20);
+
+            // Level condition
+            if (score >= 1000) { // Change this to the desired level
+                document.getElementById('message').textContent = 'Félicitations ! Niveau atteint.';
+                setTimeout(() => {
+                    window.location.href = "questionnaire3.html"; // Redirection
+                }, 2000);
+                return;
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Start the game
+        function startGame() {
+            score = 0;
+            obstacles = [];
+            createObstacle();
+            update();
+        }
+
+        // End game
+        function endGame() {
+            alert('Game Over! Essaie encore.');
+            startGame();
+        }
+
+        // Jump control
+        window.add
