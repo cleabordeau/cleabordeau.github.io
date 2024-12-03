@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire Photo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .photo-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .photo-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Etape 2 </h1>
+          <form id="photoForm">
+            <p>Choisis les meilleurs chats :</p>
+            <div class="photo-grid">
+                <label>
+                    <input type="checkbox" name="photo" value="photo1">
+                    <img src="photos/Neno.png" alt="Neno">
+                </label>
+                <label>
+                    <input type="checkbox" name="photo" value="photo2">
+                    <img src="photos/Mimo1.jpg" alt="Photo 2">
+                </label>
+                <label>
+                    <input type="checkbox" name="photo" value="photo3">
+                    <img src="photos/Mimo2.jpg" alt="Photo 3">
+                </label>
+                <label>
+                    <input type="checkbox" name="photo" value="photo4">
+                    <img src="photos/Mimo3.jpg" alt="Photo 4">
+                </label>
+            </div>
+            <br>
+            <input type="submit" value="Valider mes réponses">
+          </form>
+      </div>
+  
+      <script>
+          document.getElementById("photoForm").addEventListener("submit", function(event) {
+              event.preventDefault(); // Empêche le rechargement de la page
+      
+              // Récupération des photos sélectionnées
+              const selectedPhotos = Array.from(document.querySelectorAll('input[name="photo"]:checked'))
+                  .map(photo => photo.value);
+      
+              // Vérification des réponses
+              const correctPhotos = ["photo2", "photo3", "photo4"]; // Remplacez par les photos correctes
+      
+              if (selectedPhotos.length === correctPhotos.length &&
+                  selectedPhotos.every(photo => correctPhotos.includes(photo))) {
+                  window.location.href = "questionnaire1.html"; // Redirection vers la page suivante
+              } else {
+                  window.location.href = "echec.html"; // Redirection vers une page d'échec
+              }
+          });
+      </script>
+      
+</body>
+</html>
