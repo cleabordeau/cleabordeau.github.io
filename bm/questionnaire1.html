@@ -40,14 +40,27 @@
     <div class="container">
         <h1>Questionnaire</h1>
         <form id="quizForm">
-            <p>Quel est mon plat préféré ?</p>
+            <p>Quel est ma date d'anniversaire ?</p>
             <input type="text" id="q1" required><br><br>
 
-            <p>Quelle est ma couleur préférée ?</p>
-            <input type="text" id="q2" required><br><br>
+            <p>Comment t'appelles-tu ?</p>
+            <select id="q2" required>
+                <option value="">-- Sélectionne une option --</option>
+                <option value="Kiliann">Kiliann</option>
+                <option value="Chouchou">Chouchou</option>
+                <option value="Doudou">Doudou</option>
+                <option value="Loulou">Loulou</option>
+                <option value="Kirikou">Kirikou</option>
+            </select><br><br>
 
             <p>Quel sont mes vacances préférées ?</p>
-            <input type="text" id="q3" required><br><br>
+            <select id="q3" required>
+                <option value="">-- Sélectionne une option --</option>
+                <option value="hiver">L'hiver/option>
+                <option value="été">été</option>
+                <option value="printemps">printemps</option>
+            </select><br><br>
+
 
             <input type="submit" value="Valider mes réponses">
         </form>
@@ -63,7 +76,7 @@
             const q3 = document.getElementById("q3").value.toLowerCase().trim();
 
             // Vérification des réponses
-            if (q1 === "pizza" && q2 === "rouge" && q3 === "hiver") {
+            if (q1 === "12/02/2000" && q2 === "Chouchou" && q3 === "hiver") {
                 // Bonne réponse
                 window.location.href = "questionnaire2.html"; // Redirection vers la page du cadeau
             } else {
