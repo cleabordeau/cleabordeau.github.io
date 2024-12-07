@@ -40,18 +40,21 @@
     <div class="container">
         <h1>Questionnaire</h1>
         <form id="quizForm">
-            <p>Quel est ma date d'anniversaire ?</p>
-            <input type="date" id="q1" required><br><br>
 
             <p>Comment t'appelles-tu ?</p>
             <select id="q2" required>
                 <option value="">-- Sélectionne une option --</option>
                 <option value="Kiliann">Kiliann</option>
+                <option value="Roudoudou">Roudoudou</option>
                 <option value="Chouchou">Chouchou</option>
                 <option value="Doudou">Doudou</option>
+                <option value="Doudou">Grosdoudou</option>
                 <option value="Loulou">Loulou</option>
                 <option value="Kirikou">Kirikou</option>
             </select><br><br>
+            
+            <p>Quel est ma date d'anniversaire ?</p>
+            <input type="date" id="q1" required><br><br>
 
             <p>Quel sont mes vacances préférées ?</p>
             <select id="q3" required>
@@ -61,6 +64,15 @@
                 <option value="printemps">printemps</option>
             </select><br><br>
 
+            <p>Quel est mon pokemon préférées parmis les suivants ?</p>
+            <select id="q4" required>
+                <option value="">-- Sélectionne une option --</option>
+                <option value="Farfuret">Farfuret</option>
+                <option value="Kaimorse">Kaimorse</option>
+                <option value="Luxray">Luxray</option>
+                <option value="Roudoudou">Roudoudou</option>
+                <option value="Pikachu">Pikachu</option>
+            </select><br><br>
 
             <input type="submit" value="Valider mes réponses">
         </form>
@@ -75,14 +87,16 @@
             const dateAnswer = document.getElementById("q1").value;
             const nameAnswer = document.getElementById("q2").value;
             const vacationAnswer = document.getElementById("q3").value;
+            const pokemonAnswer = document.getElementById("q4").value;
     
             // Réponses correctes
             const correctDate = "2000-02-12"; // Date au format ISO
             const correctName = "Chouchou";
             const correctVacation = "hiver";
+            const correctPokemon = "Kaimorse";
     
             // Vérification des réponses
-            if (dateAnswer === correctDate && nameAnswer === correctName && vacationAnswer === correctVacation) {
+            if (dateAnswer === correctDate && nameAnswer === correctName && vacationAnswer === correctVacation && correctPokemon === pokemonAnswer) {
                 // Bonne réponse
                 window.location.href = "questionnaire2.html"; // Redirection vers la page du cadeau
             } else {
