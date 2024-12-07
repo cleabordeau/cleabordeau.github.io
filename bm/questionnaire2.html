@@ -56,7 +56,7 @@
     <div class="container">
         <h1>Etape 2 </h1>
         <form id="photoForm">
-            <p>Choisis le meilleur chat :</p>
+            <p>Choisis le chat le plus adorable:</p>
             <div class="photo-grid">
                 <label>
                     <input type="radio" name="photo" value="photo1" required>
@@ -67,12 +67,12 @@
                     <img src="photos/BadMimo13.jpg" alt="Photo 2">
                 </label>
                 <label>
-                    <input type="radio" name="photo" value="photo3" required>
-                    <img src="photos/BadFoufou.png" alt="Photo 3">
-                </label>
-                <label>
                     <input type="radio" name="photo" value="photo4" required>
                     <img src="photos/BadMimo12.jpg" alt="Photo 4">
+                </label>
+                <label>
+                    <input type="radio" name="photo" value="photo3" required>
+                    <img src="photos/BadFoufou.png" alt="Photo 3">
                 </label>
             </div>
             <br>
@@ -88,7 +88,7 @@
             const selectedPhoto = document.querySelector('input[name="photo"]:checked').value;
 
             // Vérification de la réponse
-            if (selectedPhoto === "photo3") { // Remplacez "photo3" par la photo correcte
+            if (selectedPhoto === "photo1") { // Remplacez "photo3" par la photo correcte
                 window.location.href = "questionnaire3.html"; // Redirection vers la page du cadeau
             } else {
                 window.location.href = "echec.html"; // Redirection vers une page d'échec
