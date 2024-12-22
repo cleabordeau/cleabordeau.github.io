@@ -74,6 +74,32 @@
                 <option value="Pikachu">Pikachu</option>
             </select><br><br>
 
+            <p>Quel est mon plat préféré ?</p>
+            <select id="q5" required>
+                <option value="">-- Sélectionne une option --</option>
+                <option value="Farfuret">Carbonara</option>
+                <option value="Kaimorse">Tomates farcies</option>
+                <option value="Luxray">Sushi</option>
+                <option value="Crozi">Croziflette</option>
+            </select><br><br>
+
+            <p>Quel est mon lieu préféré ?</p>
+            <select id="q6" required>
+                <option value="">-- Sélectionne une option --</option>
+                <option value="mer">La mer</option>
+                <option value="montagne">La montagne</option>
+                <option value="ville">La ville</option>
+                <option value="Roudoudou">La campagn</option>
+            </select><br><br>
+
+            <p>Quel est mon activité préféré ?</p>
+            <select id="q7" required>
+                <option value="">-- Sélectionne une option --</option>
+                <option value="restau">Restaurant</option>
+                <option value="bar">Bar</option>
+                <option value="surf">Surf</option>
+            </select><br><br>
+
             <input type="submit" value="Valider mes réponses">
         </form>
     </div>
@@ -88,15 +114,21 @@
             const nameAnswer = document.getElementById("q2").value;
             const vacationAnswer = document.getElementById("q3").value;
             const pokemonAnswer = document.getElementById("q4").value;
+            const platAnswer = document.getElementById("q5").value;
+            const lieuAnswer = document.getElementById("q6").value;
+            const activityAnswer = document.getElementById("q7").value;
     
             // Réponses correctes
             const correctDate = "2000-02-12"; // Date au format ISO
             const correctName = "Chouchou";
             const correctVacation = "hiver";
             const correctPokemon = "Kaimorse";
+            const correctPlat = "Crozi";
+            const correctLieu = "mer";
+            const correctActivity = "surf";
     
             // Vérification des réponses
-            if (dateAnswer === correctDate && nameAnswer === correctName && vacationAnswer === correctVacation && correctPokemon === pokemonAnswer) {
+            if (dateAnswer === correctDate && nameAnswer === correctName && vacationAnswer === correctVacation && correctPokemon === pokemonAnswer && correctPlat === platAnswer && correctLieu === lieuAnswer && correctActivity === activityAnswer) {
                 // Bonne réponse
                 window.location.href = "questionnaire2.html"; // Redirection vers la page du cadeau
             } else {
