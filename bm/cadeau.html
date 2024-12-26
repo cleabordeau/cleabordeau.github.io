@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,19 +12,18 @@
             color: #333;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Empêche le défilement dû aux flocons */
         }
         .container {
             margin-top: 50px;
             padding: 20px;
         }
         .snowflake {
-            position: fixed;
+            position: fixed; /* Toujours visible dans le viewport */
             top: -10px;
             color: white;
             font-size: 1em;
             z-index: 1000;
-            pointer-events: none;
+            pointer-events: none; /* Ignorer les clics */
             animation: fall linear infinite, sway infinite;
         }
         @keyframes fall {
@@ -33,7 +31,7 @@
                 top: -10px;
             }
             100% {
-                top: 100vh;
+                top: 100vh; /* La hauteur de l'écran visible */
             }
         }
         @keyframes sway {
@@ -89,4 +87,5 @@
     </script>
 </body>
 </html>
+
 
