@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,20 +13,45 @@
             color: #333;
             margin: 0;
             padding: 0;
+            overflow: hidden; /* Empêche le défilement dû aux flocons */
         }
         .container {
             margin-top: 50px;
             padding: 20px;
         }
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            z-index: 1000;
+            pointer-events: none;
+            animation: fall linear infinite, sway infinite;
+        }
+        @keyframes fall {
+            0% {
+                top: -10px;
+            }
+            100% {
+                top: 100vh;
+            }
+        }
+        @keyframes sway {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-             <h1>Félicitations mon chéri ! 🎉</h1>
-    <div class="container">
+        <h1>Félicitations mon chéri ! 🎉</h1>
         <p>Bravo mon chéri, tu as réussi à répondre correctement à toutes les questions et à aller jusqu'au bout du parcours.</p>
         <p class="highlight">Voici donc ton cadeau : </p>
-        <p> <img src="photos/ski2.JPG" alt="ski" /> </p>
+        <p><img src="photos/ski2.JPG" alt="ski" /></p>
         <p>(Je sais qu'on dirait Amelie et Mathis mais c'est bel et bien nous tqt)</p>
         <p>Je t'offre un <strong>weekend ski en amoureux</strong>. Prépare tes vêtements les plus chauds, car le départ est prévu :</p>
         <ul>
@@ -36,9 +62,31 @@
         </ul>
         <p>Tout est compris dans le séjour : transport, logement, pension complète et forfait.</p>
         <p>Trop hâte de partager ce moment avec toi ❤️</p>
-        <center><img src="photos/ski1.jpeg" alt="ski" /><img src="photos/ski3.jpeg" alt="ski" /></center>
+        <center>
+            <img src="photos/ski1.jpeg" alt="ski" />
+            <img src="photos/ski3.jpeg" alt="ski" />
+        </center>
     </div>
     <footer>Avec tout mon amour ❤️</footer>
-    </div>
+    
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Durée de chute
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // Taille aléatoire
+            document.body.appendChild(snowflake);
+
+            // Retirer le flocon après sa chute
+            snowflake.addEventListener('animationend', () => {
+                snowflake.remove();
+            });
+        }
+
+        setInterval(createSnowflake, 100); // Générer un flocon toutes les 100ms
+    </script>
 </body>
 </html>
+
